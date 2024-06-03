@@ -1,0 +1,158 @@
+﻿body {
+    background-color: #315D66; /*green*/
+}
+.fon {
+    background-color: #D9D9D9; /*white*/
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 5%;
+    padding-top: 2%;
+    display: block;
+}
+
+.profile {
+    background-color: #315D66;
+    text-align: center;
+    padding: 5%;
+}
+
+.profile_content {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+.profile_content button {
+    background-color: lightsteelblue;
+    color: black;
+    display: block;
+}
+
+.profile_left{
+    float:left;
+    width:40%;
+}
+.profile_left h2{
+    margin-top: 2%;
+}
+
+.avatar{
+    width: 75%;
+    height: 100%;
+    border-radius:50%;
+}
+.loadbar {
+    width: 25vw;
+    height: 2vh;
+    border-radius: 50%;
+    margin-top:3%;
+}
+a:hover {
+    color: #D9D9D9 !important;
+}
+.profile_right {
+    float: right;
+    padding-left: 1%;
+    text-align: left;
+    width: 60%;
+    display: block;
+}
+
+.table_left {
+    font-size: 2vw;
+    width: 180px;
+    vertical-align: top;
+    color: black;
+    font-family: 'Times New Roman';
+}
+.table_right {
+    font-size: 2vw;
+    line-height: 2vw;
+    color: lightsteelblue; /*darkseagreen*/
+    font-family: 'Times New Roman';
+}
+
+
+.manage {
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+.manage button {
+    background-color: #001048;
+    color: whitesmoke;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.rating {
+    display: flex;
+    justify-content: left;
+}
+.rating input{
+    width: 15%;
+    height: auto;
+    margin-left: 3%;
+}
+.rating button {
+    background-color: #001048;
+    color: whitesmoke;
+}
+.manage a {
+    background-color: #001048;
+    color: whitesmoke;
+}
+a:hover {
+    color: #D9D9D9 !important;
+}
+.story {
+    background-color: #315D66;
+    text-align: center;
+    padding: 5%;
+    margin-top:7%;
+}
+
+.addAndshow  {
+    display: flex;
+    justify-content: space-around;
+}
+.addAndshow a {
+    background-color: #001048;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 25vw;
+    height: auto;
+    color: whitesmoke;
+}
+.addAndshow button{
+    background-color: #001048;
+    padding-top:1%;
+    padding-bottom:1%;
+    width: 25vw;
+    height: auto;
+    color: whitesmoke;
+}
+
+.myTable table {
+    margin-top: 3%;
+    width: 100%;
+    background-color: #D9D9D9;
+    margin-bottom:3%;
+}
+.myTable table thead tr td {
+    font-size: 150%;
+    border: 2px solid black;
+}
+.myTable table tbody tr td {
+    font-size: 125%;
+    border: 2px solid black;
+}
+.myTable table a {
+    background-color: #001048;
+    color: whitesmoke;
+}
+
+label{
+    font-size:1.8vw;
+}

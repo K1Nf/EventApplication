@@ -1,0 +1,115 @@
+﻿@model EventApplication.Models.User
+
+@{
+    ViewData["Title"] = "Редактирование профиля";
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Account.css" asp-append-version="true" />
+</head>
+<body>
+    <h1 style="text-align: center;">Редактирование профиля</h1>
+    <h2 style="margin-left:4.5%; color:whitesmoke">Профиль пользователя @Model.UserName</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-9" style=" margin-left:5%; background-color: #D9D9D9; margin-right:55%; width:40%;">
+            <form method="post" asp-controller="User" asp-action="EditUser">
+                <div asp-validation-summary="None" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="mb-2 form-group">
+                    <label asp-for="UserName" class="control-label"></label>
+                    <input asp-for="UserName" class="form-control" readonly />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="SecondName" class="control-label"></label>
+                    <input asp-for="SecondName" class="form-control" />
+                    <span asp-validation-for="SecondName" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Image_link" class="control-label"></label>
+                    <input asp-for="Image_link" class="form-control" />
+                    <span asp-validation-for="Image_link" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="TagsIds" class="control-label"></label>
+                    <select multiple asp-for="TagsIds" class="form-control" asp-items="ViewBag.Tags">
+                        <option disabled selected>---Выберите новые тэги---</option>
+                    </select>
+                    <span asp-validation-for="TagsIds" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" type="number" maxlength="11" min="10000000000" max="99999999999"/>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="BirthDate" class="control-label"></label>
+                    <input asp-for="BirthDate" type="date" class="form-control"/>
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group" hidden>
+                    <label asp-for="Rating" class="control-label"></label>
+                    <input asp-for="Rating" class="form-control" /> 
+                  <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group" hidden>
+                    <label asp-for="Count_Rating" class="control-label"></label>
+                    <input asp-for="Count_Rating" class="form-control" />
+                    <span asp-validation-for="Count_Rating" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Information" class="control-label"></label>
+                    <textarea asp-for="Information" class="form-control" style="resize: none; height: 12vh"></textarea>
+                    <span asp-validation-for="Information" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group" hidden>
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="DateRegistration" class="control-label"></label>
+                    <input asp-for="DateRegistration" class="form-control" readonly />
+                    <span asp-validation-for="DateRegistration" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <input type="submit" value="Применить изменения" class="btn btn-primary" />
+                    <a asp-action="Account" asp-controller="User" class="btn btn-secondary">Вернуться к профилю</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

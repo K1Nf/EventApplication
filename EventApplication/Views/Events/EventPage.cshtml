@@ -1,0 +1,93 @@
+﻿@model EventApplication.Models.Event
+
+@{
+    ViewData["Title"] = "Страница мероприятия";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/EventPage.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="fon">
+        <div class="event">
+            <h1 style="color: white"> @Model.User.UserName - @Model.Name</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="table_left"><strong>Статус: </strong></td>
+                        <td class="table_right">@Model.Status</td>
+                    </tr>
+                    <tr>
+                        <td class="table_left"><strong>Дата и время: </strong></td>
+                        <td class="table_right"> @Model.Date @Model.TimeStart - @Model.TimeEnd</td>
+                    </tr>
+                    <tr>
+                        <td class="table_left"><strong>Город: </strong></td>
+                        <td class="table_right">@Model.User.City</td>
+                    </tr>
+                    <tr>
+                        <td class="table_left"><strong>Место: </strong></td>
+                        <td class="table_right"> @Model.Place</td>
+                    </tr>
+                    <tr>
+                        <td class="table_left"><strong>Описание: </strong></td>
+                        <td class="table_right"> @Model.Description</td>
+                    </tr>
+                    <tr>
+                        <td class="table_left"><strong>Тэги: </strong></td>
+                        <td class="table_right">
+                            @{
+                                foreach (var tag in @Model.Tags!)
+                                {
+                                    <strong>
+                                        @tag.Name
+                                    </strong>
+                                }
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table_left"><strong>Количество гостей: </strong></td>
+                        <td class="table_right">@Model.Max_Ghost</td>
+                    </tr>
+                    <tr>
+                        <td class="table_left"><strong>Гости: </strong></td>
+                        <td class="table_right"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mnge" id="meauthor">
+                <a asp-controller="Events" asp-action="Delete" asp-route-id="@Model.Id" class="btn" >Отменить мероприятие</a>
+                <a asp-controller="Events" asp-action="Update" asp-route-id="@Model.Id" class="btn" >Изменить мероприятие</a>
+                <a asp-route-Id="@Model.Id" class="btn">Зарегистрироваться на мероприятие</a> @* asp-controller="Event" asp-action="Register" *@
+                <a class="btn" href="#" >Посмотреть гостей</a>
+            </div>
+
+            
+            @* Переход на страницу гостя *@
+            @* <div class="clickUser">
+                <h3>MIKITA</h3>
+                <a class="btn">Перейти на страницу</a>
+                <a class="btn" style="margin-left: 3%">Оценить (Х/10)</a>
+                <input placeholder="5" type="number" min="0" max="10" style="width:5%;"/>
+            
+                
+                </div> *@
+            <!--Модальное окно-->
+            @* Окно подтверждения регистрации на мероприятие *@
+            <!--Модальное окно-->
+
+
+
+            <div class="mnge" id="meghost" style="display: none">
+                <a class="btn">Сняться с мероприятия</a>
+                <a class="btn">Оценить автора</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

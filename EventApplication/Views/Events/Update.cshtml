@@ -1,0 +1,89 @@
+﻿@model EventApplication.Models.Event
+
+@{
+    ViewData["Title"] = "Редактирование мероприятия";
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Account.css" asp-append-version="true" />
+</head>
+<body>
+    <h1 style="text-align: center;">Редактирование мероприятия</h1>
+    <h2 style="margin-left:4.5%">Мероприятие "@Model.Name"</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-9" style=" margin-left:5%; background-color: #D9D9D9; margin-right:55%; width:40%;">
+            <form method="post" asp-controller="Events" asp-action="UpdateEventAsync">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="mb-2 form-group" >
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group" hidden>
+                    <label asp-for="UserId" class="control-label"></label>
+                    <input asp-for="UserId" class="form-control" />
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Place" class="control-label"></label>
+                    <input asp-for="Place" class="form-control" />
+                    <span asp-validation-for="Place" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" type="date"/>
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="TimeStart" class="control-label"></label>
+                    <input asp-for="TimeStart" class="form-control" type="time" />
+                    <span asp-validation-for="TimeStart" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Max_Ghost" class="control-label"></label>
+                    <input asp-for="Max_Ghost" class="form-control" />
+                    <span asp-validation-for="Max_Ghost" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="TagesIds" class="control-label"></label>
+                    <select multiple asp-for="TagesIds" class="form-control" asp-items="ViewBag.Tags">
+                        <option disabled selected>---Выберите новые тэги---</option>
+                    </select>
+                    <span asp-validation-for="TagesIds" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Status" class="control-label"></label>
+                    <input asp-for="Status" class="form-control" disabled readonly/>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control" style="resize: none; height: 12vh"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <label asp-for="Dop_Information" class="control-label"></label>
+                    <textarea asp-for="Dop_Information" class="form-control" style="resize: none; height: 12vh"></textarea>
+                    <span asp-validation-for="Dop_Information" class="text-danger"></span>
+                </div>
+                <div class="mb-2 form-group">
+                    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                    <a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Вернуться к списку мероприятий</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
